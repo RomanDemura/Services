@@ -23,6 +23,7 @@
         <service android:name=".MySimpleService"/>
         <service android:name=".MyForegroundService"/>
         <service android:name=".MyIntentService"/>
+        <service android:name=".MyJobService"/>
     </application>
 
 </manifest>
