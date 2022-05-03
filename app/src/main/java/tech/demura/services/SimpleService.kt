@@ -24,6 +24,7 @@ class SimpleService: Service() {
                 delay(1000L)
                 log("Timer: $i")
             }
+            stopSelf()
         }
 
         return START_STICKY
