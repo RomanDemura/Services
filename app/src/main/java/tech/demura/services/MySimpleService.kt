@@ -7,7 +7,7 @@ import android.os.IBinder
 import android.util.Log
 import kotlinx.coroutines.*
 
-class SimpleService: Service() {
+class MySimpleService: Service() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
@@ -20,7 +20,7 @@ class SimpleService: Service() {
         log("onStartCommand")
         val start = intent?.getIntExtra(EXTRA_START, 0) ?: 0
         coroutineScope.launch {
-            for (i in start until start + 20){
+            for (i in start until start + 8){
                 delay(1000L)
                 log("Timer: $i")
             }
@@ -47,7 +47,7 @@ class SimpleService: Service() {
     companion object{
         private const val EXTRA_START = "start"
         fun newIntent(context: Context, start: Int): Intent{
-            return Intent(context, SimpleService::class.java).apply {
+            return Intent(context, MySimpleService::class.java).apply {
                 putExtra(EXTRA_START, start)
             }
         }

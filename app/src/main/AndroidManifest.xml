@@ -20,8 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".SimpleService"/>
-        <service android:name=".ForegroundService"/>
+        <service android:name=".MySimpleService"/>
+        <service android:name=".MyForegroundService"/>
+        <service android:name=".MyIntentService"/>
     </application>
 
 </manifest>

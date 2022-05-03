@@ -1,5 +1,6 @@
 package tech.demura.services
 
+import android.app.IntentService
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -19,19 +20,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setClickListeners()
+    }
 
+    private fun setClickListeners(){
         binding.btnService.setOnClickListener {
-            stopService(ForegroundService.newIntent(this))
-            startService(SimpleService.newIntent(this, 25))
+            stopService(MyForegroundService.newIntent(this))
+            startService(MySimpleService.newIntent(this, 25))
         }
 
         binding.btnForegroundService.setOnClickListener {
             ContextCompat.startForegroundService(
                 this,
-                ForegroundService.newIntent(this)
+                MyForegroundService.newIntent(this)
             )
         }
 
+        binding.btnIntentService.setOnClickListener {
+            startService(MyIntentService.newIntent(this))
+        }
     }
-
 }
