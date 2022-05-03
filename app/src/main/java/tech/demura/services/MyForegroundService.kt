@@ -12,7 +12,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import kotlinx.coroutines.*
 
-class ForegroundService: Service() {
+class MyForegroundService: Service() {
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate() {
@@ -25,7 +25,7 @@ class ForegroundService: Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         log("onStartCommand")
         coroutineScope.launch {
-            for(i in 0 until 25){
+            for(i in 0 until 8){
                 delay(1000L)
                 log("Timer: $i")
             }
@@ -54,7 +54,7 @@ class ForegroundService: Service() {
         private const val NOTIFICATION_ID = 112
 
         fun newIntent(context: Context): Intent{
-            return Intent(context, ForegroundService::class.java)
+            return Intent(context, MyForegroundService::class.java)
         }
     }
 
