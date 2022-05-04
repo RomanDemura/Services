@@ -13,7 +13,7 @@ class MyJobIntentService: JobIntentService() {
     }
 
     override fun onHandleWork(intent: Intent) {
-        log("onHandledIntent")
+        log("onHandledWork")
         val page = intent.getIntExtra(PAGE, 0)
         for (i in 0 until 8) {
             Thread.sleep(1000L)
